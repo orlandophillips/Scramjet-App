@@ -86,11 +86,14 @@ function shutdown() {
 	process.exit(0);
 }
 
+// At the bottom of your src/index.js
 let port = parseInt(process.env.PORT || "");
 
 if (isNaN(port)) port = 8080;
 
+// This is correct: it binds to 0.0.0.0 and uses the port variable
 fastify.listen({
 	port: port,
 	host: "0.0.0.0",
 });
+
